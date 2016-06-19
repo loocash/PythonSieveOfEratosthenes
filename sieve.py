@@ -21,7 +21,7 @@ class Sieve:
   def _sieve(self):
     self.isPrime = [True for x in range(self.size+1)]
     self.isPrime[0] = self.isPrime[1] = False
-    bound = floor(sqrt(self.size+1))
+    bound = int(floor(sqrt(self.size+1)))
     for i in range(2, bound):
       if self.isPrime[i]:
         for j in range(i*i, self.size+1, i):

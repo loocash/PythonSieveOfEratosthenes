@@ -10,7 +10,7 @@ class TestSieve(unittest.TestCase):
         self.assertEqual(self.sieve.size, 100)
 
     def test_isPrime_83(self):
-        self.assertEqual(self.sieve.isPrime[83], True)
+        self.assertEqual(self.sieve.is_prime[83], True)
 
     def test_first_5_primes(self):
         self.assertEqual(self.sieve.first(5), [2, 3, 5, 7, 11])

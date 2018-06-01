@@ -20,13 +20,17 @@ class Sieve:
         self._make_primes()
 
     def _sieve(self):
-        self.isPrime = [True for _ in range(self.size + 1)]
-        self.isPrime[0] = self.isPrime[1] = False
+        is_prime = [True for _ in range(self.size + 1)]
+
+        is_prime[0], is_prime[1] = False, False
         bound = int(floor(sqrt(self.size + 1)))
         for i in range(2, bound):
-            if self.isPrime[i]:
-                for j in range(i * i, self.size + 1, i):
-                    self.isPrime[j] = False
+            if not is_prime[i]:
+                continue
+            for j in range(i * i, self.size + 1, i):
+                is_prime[j] = False
+
+        self.is_prime = is_prime
 
     def _make_primes(self):
-        self.primes = list(filter(lambda x: self.isPrime[x], range(self.size + 1)))
+        self.primes = list(filter(lambda x: self.is_prime[x], range(self.size + 1)))

@@ -1,4 +1,20 @@
-# Sieve of Eratosthenes
+r"""
+An implementation of the ``Sieve of Eratosthenes`` algorithm.
+For a given upper bound of ``n`` performs O(n lg lg n) preprocessing
+and then answers the question of primality of a number from a range
+[2; n] (including n) in O(1) (constant) time.
+
+>>> s = Sieve(100)
+>>> primes_up_to_20 = s.up_to(20)
+>>> print(primes_up_to_20)
+[2, 3, 5, 7, 11, 13, 17, 19]
+>>> print(s.is_prime[83])
+True
+>>> print(s.is_prime[100])
+False
+>>> print(s.first(5))
+[2, 3, 5, 7, 11]
+"""
 
 from bisect import bisect_right
 from math import sqrt, floor
@@ -20,7 +36,7 @@ class Sieve:
         self._make_primes()
 
     def _sieve(self):
-        is_prime = [True for _ in range(self.size + 1)]
+        is_prime = [True] * (self.size + 1)
 
         is_prime[0], is_prime[1] = False, False
         bound = int(floor(sqrt(self.size + 1)))

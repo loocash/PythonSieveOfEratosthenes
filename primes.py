@@ -4,15 +4,14 @@ For a given upper bound of ``n`` performs O(n lg lg n) preprocessing
 and then answers the question of primality of a number from a range
 [2; n] (including n) in O(1) (constant) time.
 
->>> s = Sieve(100)
->>> primes_up_to_20 = s.up_to(20)
->>> print(primes_up_to_20)
+>>> primes = Primes(100)
+>>> print(primes.up_to(20))
 [2, 3, 5, 7, 11, 13, 17, 19]
->>> print(s.is_prime[83])
+>>> print(primes.is_prime[83])
 True
->>> print(s.is_prime[100])
+>>> print(primes.is_prime[100])
 False
->>> print(s.first(5))
+>>> print(primes.first(5))
 [2, 3, 5, 7, 11]
 """
 
@@ -20,7 +19,7 @@ from bisect import bisect_right
 from math import sqrt, floor
 
 
-class Sieve:
+class Primes:
 
     def first(self, k):
         return self.primes[:k]

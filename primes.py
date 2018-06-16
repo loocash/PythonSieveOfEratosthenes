@@ -48,3 +48,8 @@ class Primes:
 
     def _make_primes(self):
         self.primes = list(filter(lambda x: self.is_prime[x], range(self.size + 1)))
+
+    def __repr__(self):
+        module = self.__class__.__module__
+        name = self.__class__.__name__
+        return f"{module}.{name}({self.size})"

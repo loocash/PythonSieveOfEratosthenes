@@ -30,7 +30,6 @@ class Sieve:
         return self.primes[:index]
 
     def __init__(self, size):
-        assert (1 < size < 2 ** 30)
         self.size = size
         self._sieve()
         self._make_primes()
